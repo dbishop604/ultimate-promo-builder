@@ -1,17 +1,35 @@
 {
   "functions": {
-    "api/builder.js": { "includeFiles": "private/**" }
+    "api/access.js": {
+      "maxDuration": 60
+    },
+    "api/builder.js": {
+      "includeFiles": "private/**",
+      "maxDuration": 60
+    }
   },
   "rewrites": [
-    { "source": "/app", "destination": "/api/builder" }
+    {
+      "source": "/app",
+      "destination": "/api/builder"
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "X-Frame-Options", "value": "DENY" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        }
       ]
     }
   ]
